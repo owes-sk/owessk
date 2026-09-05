@@ -1,0 +1,479 @@
+<title>Owais Shaikh</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #f2f5f8;
+    --bg-grid: #e4e9ef;
+    --surface: #ffffff;
+    --surface-alt: #e9edf3;
+    --border: #d3dbe6;
+    --text: #141d29;
+    --text-muted: #55637a;
+    --text-faint: #8493a8;
+    --accent: #0b7d78;
+    --accent-soft: #0b7d7818;
+    --accent-2: #b9711c;
+    --accent-2-soft: #b9711c18;
+    --good: #1f9d55;
+    --line: #c3d0d9;
+    --shadow: 0 1px 2px rgba(20,29,41,0.04), 0 8px 24px rgba(20,29,41,0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0a1119;
+      --bg-grid: #0e1622;
+      --surface: #121b29;
+      --surface-alt: #182236;
+      --border: #263349;
+      --text: #e8edf4;
+      --text-muted: #97a5ba;
+      --text-faint: #64748f;
+      --accent: #49d9b8;
+      --accent-soft: #49d9b81c;
+      --accent-2: #eeab52;
+      --accent-2-soft: #eeab521c;
+      --good: #45cd82;
+      --line: #263349;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0a1119;
+    --bg-grid: #0e1622;
+    --surface: #121b29;
+    --surface-alt: #182236;
+    --border: #263349;
+    --text: #e8edf4;
+    --text-muted: #97a5ba;
+    --text-faint: #64748f;
+    --accent: #49d9b8;
+    --accent-soft: #49d9b81c;
+    --accent-2: #eeab52;
+    --accent-2-soft: #eeab521c;
+    --good: #45cd82;
+    --line: #263349;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 32px rgba(0,0,0,0.35);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif; text-wrap: balance; margin: 0; }
+
+  .mono { font-family: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace; }
+
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, .navlink:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- nav ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px; max-width: 1080px; margin: 0 auto;
+  }
+  .brand { display: flex; align-items: baseline; gap: 10px; }
+  .brand-mark {
+    width: 9px; height: 9px; border-radius: 50%; background: var(--good);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+    flex: none;
+  }
+  .brand-name { font-family: 'Big Shoulders Display'; font-weight: 700; font-size: 1.15rem; letter-spacing: 0.02em; }
+  nav.links { display: flex; gap: 22px; }
+  .navlink { color: var(--text-muted); text-decoration: none; font-size: 0.86rem; letter-spacing: 0.03em; }
+  .navlink:hover { color: var(--accent); }
+  @media (max-width: 640px) { nav.links { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero {
+    padding: 64px 0 48px;
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center;
+  }
+  @media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-top: 40px; } }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'IBM Plex Mono'; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-soft); border: 1px solid var(--accent-soft);
+    padding: 5px 10px; border-radius: 4px; margin-bottom: 18px;
+  }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); font-weight: 800; letter-spacing: 0.01em; line-height: 0.95; }
+  .hero .role { font-family: 'IBM Plex Mono'; color: var(--text-muted); font-size: clamp(1rem, 2vw, 1.2rem); margin-top: 14px; }
+  .hero .role b { color: var(--text); font-weight: 600; }
+  .hero p.lede { max-width: 54ch; color: var(--text-muted); margin-top: 18px; font-size: 1.02rem; }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.88rem; font-weight: 600; text-decoration: none;
+    padding: 10px 16px; border-radius: 6px; border: 1px solid var(--border);
+    color: var(--text); transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #04211d; }
+  :root[data-theme="dark"] .btn.primary, @media (prefers-color-scheme: dark) { }
+  .btn:hover { transform: translateY(-1px); border-color: var(--accent); }
+  .btn.primary:hover { filter: brightness(1.05); }
+
+  /* node graph */
+  .topo { width: 100%; height: auto; overflow: visible; }
+  .topo .link { stroke: var(--line); stroke-width: 1.4; fill: none; }
+  .topo .link.live { stroke: var(--accent); stroke-width: 1.6; stroke-dasharray: 3 6; animation: dash 5s linear infinite; }
+  .topo .node-store { fill: var(--surface); stroke: var(--border); stroke-width: 1.4; }
+  .topo .node-hq { fill: var(--accent); }
+  .topo .pulse { fill: var(--accent); }
+  .topo text { font-family: 'IBM Plex Mono'; font-size: 8.5px; fill: var(--text-faint); }
+  .topo .hq-label { fill: var(--text); font-weight: 600; font-size: 9px; }
+  @keyframes dash { to { stroke-dashoffset: -90; } }
+  @media (prefers-reduced-motion: reduce) {
+    .topo .link.live { animation: none; }
+    .topo .pulse { display: none; }
+  }
+
+  /* ---------- stat strip ---------- */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+    margin: 8px 0 56px;
+  }
+  @media (max-width: 700px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat { background: var(--surface); padding: 20px 18px; }
+  .stat .num { font-family: 'Big Shoulders Display'; font-weight: 800; font-size: 2.1rem; color: var(--accent); line-height: 1; }
+  .stat .label { font-family: 'IBM Plex Mono'; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 6px; }
+
+  /* ---------- section shell ---------- */
+  section { padding: 56px 0; border-top: 1px solid var(--border); }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 30px; }
+  .section-num { font-family: 'IBM Plex Mono'; color: var(--text-faint); font-size: 0.85rem; }
+  .section-head h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 700; }
+  .section-sub { color: var(--text-muted); max-width: 60ch; margin: -14px 0 30px; font-size: 0.98rem; }
+
+  /* ---------- about ---------- */
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 44px; }
+  @media (max-width: 780px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-grid p { color: var(--text-muted); margin: 0 0 14px; }
+  .about-grid p:last-child { margin-bottom: 0; }
+  .about-grid strong { color: var(--text); font-weight: 600; }
+
+  .sidecard {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 22px; box-shadow: var(--shadow); align-self: start;
+  }
+  .sidecard h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; }
+  .kv { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-bottom: 1px dashed var(--border); font-size: 0.86rem; }
+  .kv:last-child { border-bottom: none; }
+  .kv .k { color: var(--text-muted); }
+  .kv .v { font-family: 'IBM Plex Mono'; font-size: 0.82rem; text-align: right; }
+
+  /* ---------- skills ---------- */
+  .skill-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 860px) { .skill-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .skill-grid { grid-template-columns: 1fr; } }
+  .skill-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 20px; box-shadow: var(--shadow);
+  }
+  .skill-card .bar { width: 26px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 12px; }
+  .skill-card:nth-child(5) .bar, .skill-card:nth-child(6) .bar { background: var(--accent-2); }
+  .skill-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; font-family: 'IBM Plex Sans'; }
+  .skill-card .desc { color: var(--text-muted); font-size: 0.84rem; margin-bottom: 12px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: 'IBM Plex Mono'; font-size: 0.72rem; color: var(--text-muted);
+    background: var(--surface-alt); border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px;
+  }
+
+  /* ---------- experience ---------- */
+  .timeline { position: relative; }
+  .role {
+    position: relative; padding: 0 0 40px 30px; border-left: 2px solid var(--border);
+  }
+  .role:last-child { padding-bottom: 4px; }
+  .role::before {
+    content: ""; position: absolute; left: -7px; top: 3px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--surface); border: 2px solid var(--accent);
+  }
+  .role.current::before { background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+  .role-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+  .role-head h3 { font-size: 1.3rem; font-weight: 700; }
+  .badge {
+    font-family: 'IBM Plex Mono'; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-soft); padding: 3px 8px; border-radius: 4px;
+  }
+  .role-title { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 2px; }
+  .role-dates { font-family: 'IBM Plex Mono'; color: var(--text-faint); font-size: 0.78rem; margin-bottom: 14px; }
+  .role ul { margin: 0; padding-left: 18px; color: var(--text-muted); display: grid; gap: 8px; font-size: 0.92rem; }
+  .role ul li::marker { color: var(--accent); }
+
+  /* ---------- education / certs ---------- */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 780px) { .edu-grid { grid-template-columns: 1fr; } }
+  .edu-grid h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 14px; }
+  .item-list { display: grid; gap: 14px; }
+  .item { border-left: 2px solid var(--border); padding-left: 14px; }
+  .item .t { font-weight: 600; font-size: 0.94rem; }
+  .item .s { color: var(--text-muted); font-size: 0.84rem; }
+  .cert-item { display: flex; align-items: center; gap: 10px; border-left: 2px solid var(--border); padding-left: 14px; }
+  .cert-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-2); flex: none; }
+  .cert-item .t { font-weight: 600; font-size: 0.94rem; }
+
+  /* ---------- footer / contact ---------- */
+  footer { padding: 48px 0 60px; }
+  .contact-panel {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 34px 36px; box-shadow: var(--shadow);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 28px; align-items: center;
+  }
+  .contact-panel h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; max-width: 20ch; }
+  .contact-status { display: flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono'; font-size: 0.76rem; color: var(--good); margin-bottom: 10px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .contact-status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 20%, transparent); }
+  .contact-links { display: flex; flex-direction: column; gap: 10px; font-family: 'IBM Plex Mono'; font-size: 0.88rem; }
+  .contact-links a { text-decoration: none; color: var(--text); border-bottom: 1px solid transparent; }
+  .contact-links a:hover { color: var(--accent); border-color: var(--accent); }
+  .foot-note { text-align: center; color: var(--text-faint); font-size: 0.78rem; margin-top: 26px; font-family: 'IBM Plex Mono'; }
+</style>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">OWAIS SHAIKH</span>
+    </div>
+    <nav class="links">
+      <a class="navlink" href="#about">About</a>
+      <a class="navlink" href="#skills">Skills</a>
+      <a class="navlink" href="#experience">Experience</a>
+      <a class="navlink" href="#education">Education</a>
+      <a class="navlink" href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div>
+      <span class="eyebrow">Mumbai, India &middot; Open to relocation</span>
+      <h1>Owais<br>Shaikh</h1>
+      <div class="role"><b>Network Engineer</b> — firewalls, monitoring &amp; multi&#8209;site infrastructure</div>
+      <p class="lede">8+ years administering enterprise networks, firewalls and IT operations for a
+      multi-location retail business — keeping 85+ store networks, VPN tunnels and backups running,
+      and translating that into plain terms for the people who rely on it.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:owessk@gmail.com">Email me</a>
+        <a class="btn" href="tel:+918655250782">+91 86552 50782</a>
+        <a class="btn" href="https://www.linkedin.com/in/owessk/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <svg class="topo" viewBox="0 0 260 220" role="img" aria-label="Diagram of a head-office network connected to six retail store sites via VPN links">
+      <line class="link live" x1="130" y1="110" x2="40" y2="30"/>
+      <line class="link live" x1="130" y1="110" x2="130" y2="18"/>
+      <line class="link live" x1="130" y1="110" x2="220" y2="30"/>
+      <line class="link" x1="130" y1="110" x2="30" y2="130"/>
+      <line class="link live" x1="130" y1="110" x2="60" y2="200"/>
+      <line class="link" x1="130" y1="110" x2="200" y2="140"/>
+      <line class="link live" x1="130" y1="110" x2="215" y2="195"/>
+
+      <circle class="pulse" r="2.1"><animateMotion dur="3.2s" repeatCount="indefinite" path="M130,110 L40,30"/></circle>
+      <circle class="pulse" r="2.1"><animateMotion dur="2.6s" repeatCount="indefinite" path="M130,110 L130,18"/></circle>
+      <circle class="pulse" r="2.1"><animateMotion dur="3.6s" repeatCount="indefinite" path="M130,110 L220,30"/></circle>
+      <circle class="pulse" r="2.1"><animateMotion dur="2.9s" repeatCount="indefinite" path="M130,110 L60,200"/></circle>
+      <circle class="pulse" r="2.1"><animateMotion dur="3.3s" repeatCount="indefinite" path="M130,110 L215,195"/></circle>
+
+      <circle class="node-store" cx="40" cy="30" r="7"/>
+      <circle class="node-store" cx="130" cy="18" r="7"/>
+      <circle class="node-store" cx="220" cy="30" r="7"/>
+      <circle class="node-store" cx="30" cy="130" r="7"/>
+      <circle class="node-store" cx="60" cy="200" r="7"/>
+      <circle class="node-store" cx="200" cy="140" r="7"/>
+      <circle class="node-store" cx="215" cy="195" r="7"/>
+      <circle class="node-hq" cx="130" cy="110" r="11"/>
+
+      <text x="130" y="94" text-anchor="middle" class="hq-label">HQ</text>
+      <text x="40" y="18" text-anchor="middle">STORE</text>
+      <text x="130" y="8" text-anchor="middle">STORE</text>
+      <text x="220" y="18" text-anchor="middle">STORE</text>
+      <text x="30" y="148" text-anchor="middle">STORE</text>
+      <text x="60" y="217" text-anchor="middle">STORE</text>
+      <text x="200" y="158" text-anchor="middle">STORE</text>
+      <text x="215" y="212" text-anchor="middle">STORE</text>
+    </svg>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num mono">8+</div><div class="label">Years in IT</div></div>
+    <div class="stat"><div class="num mono">85+</div><div class="label">Retail sites managed</div></div>
+    <div class="stat"><div class="num mono">2</div><div class="label">Firewall platforms</div></div>
+    <div class="stat"><div class="num mono">3</div><div class="label">Professional certifications</div></div>
+  </div>
+
+  <section id="about">
+    <div class="section-head"><span class="section-num mono">01</span><h2>About</h2></div>
+    <div class="about-grid">
+      <div>
+        <p><strong>Over eight years in IT</strong>, specializing in network administration, firewall
+        management and IT support/team leadership. Currently responsible for the network backbone of
+        a nationwide retail operation — <strong>FortiGate and Clavister firewalls</strong>, PRTG-monitored
+        uptime across every store, and Synology NAS storage that keeps backups and file-sharing running
+        centrally.</p>
+        <p>Comfortable owning <strong>Active Directory</strong> end to end — user accounts, group policy
+        and access security — and leading IT staff through day-to-day troubleshooting so store operations
+        are never the ones waiting on IT.</p>
+        <p>Equally at home explaining a VPN outage to a non-technical store manager as configuring the
+        tunnel that fixed it. Flexible to work anywhere, and ready to relocate.</p>
+      </div>
+      <div class="sidecard">
+        <h3>At a glance</h3>
+        <div class="kv"><span class="k">Based in</span><span class="v">Mumbai, India</span></div>
+        <div class="kv"><span class="k">Role</span><span class="v">Network Engineer</span></div>
+        <div class="kv"><span class="k">Current employer</span><span class="v">The Souled Store</span></div>
+        <div class="kv"><span class="k">Experience</span><span class="v">8+ years</span></div>
+        <div class="kv"><span class="k">Relocation</span><span class="v">Open</span></div>
+        <div class="kv"><span class="k">Email</span><span class="v"><a href="mailto:owessk@gmail.com">owessk@gmail.com</a></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head"><span class="section-num mono">02</span><h2>Systems &amp; skills</h2></div>
+    <p class="section-sub">The stack behind an 85-site retail network — from the perimeter down to the hardware on a store counter.</p>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <div class="bar"></div>
+        <h3>Network infrastructure</h3>
+        <div class="desc">LAN/WAN design and troubleshooting across every site.</div>
+        <div class="tags"><span class="tag">TCP/IP</span><span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">VPN</span><span class="tag">VLAN design</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="bar"></div>
+        <h3>Firewalls &amp; security</h3>
+        <div class="desc">Perimeter policy and tunnel management for the retail network.</div>
+        <div class="tags"><span class="tag">FortiGate</span><span class="tag">Clavister</span><span class="tag">Security policy</span><span class="tag">VPN tunnels</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="bar"></div>
+        <h3>Monitoring</h3>
+        <div class="desc">Proactive uptime and bandwidth monitoring across multi-site networks.</div>
+        <div class="tags"><span class="tag">PRTG</span><span class="tag">Uptime alerting</span><span class="tag">Device health</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="bar"></div>
+        <h3>Storage &amp; backup</h3>
+        <div class="desc">Centralized backup and disaster recovery for retail and corporate sites.</div>
+        <div class="tags"><span class="tag">Synology NAS</span><span class="tag">Centralized backup</span><span class="tag">File sharing</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="bar"></div>
+        <h3>Windows Server &amp; AD</h3>
+        <div class="desc">Directory services and file infrastructure, Server 2003 through 2012.</div>
+        <div class="tags"><span class="tag">Active Directory</span><span class="tag">Group Policy</span><span class="tag">DNS/DHCP</span></div>
+      </div>
+      <div class="skill-card">
+        <div class="bar"></div>
+        <h3>Hardware &amp; support</h3>
+        <div class="desc">End-user, POS/ERP and physical systems support, on-site and remote.</div>
+        <div class="tags"><span class="tag">POS/ERP</span><span class="tag">CCTV &amp; alarms</span><span class="tag">Hardware build</span><span class="tag">Remote support</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-head"><span class="section-num mono">03</span><h2>Experience</h2></div>
+    <div class="timeline">
+
+      <div class="role current">
+        <div class="role-head"><h3>The Souled Store</h3><span class="badge">Current</span></div>
+        <div class="role-title">Sr. Associate – Tech</div>
+        <div class="role-dates">JUL 2025 — PRESENT</div>
+        <ul>
+          <li>Manage network administration and infrastructure (LAN/WAN, TCP/IP, DNS, DHCP, VPN, VLAN) across 85+ retail stores and the corporate office.</li>
+          <li>Administer FortiGate and Clavister firewalls, configuring security policies, VPN tunnels and traffic rules to protect the retail perimeter.</li>
+          <li>Monitor uptime, bandwidth and device health across every store with PRTG, resolving issues before they hit store operations.</li>
+          <li>Deploy and manage Synology NAS for centralized backup, file storage and disaster recovery.</li>
+          <li>Design and maintain VLAN segmentation and site-to-site VPN connectivity between stores, warehouse and head office.</li>
+          <li>Lead POS and ERP implementation and support across retail outlets, plus IT asset management and end-user support across Windows, Mac and Linux.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head"><h3>Ground Holding Realtors Pvt. Ltd.</h3></div>
+        <div class="role-title">IT Support Executive</div>
+        <div class="role-dates">OCT 2022 — JUL 2025</div>
+        <ul>
+          <li>Windows Server administration — Active Directory, DNS and file sharing.</li>
+          <li>Network troubleshooting, performance monitoring and incident response across LAN, WAN and VPN.</li>
+          <li>Installed and configured Windows and Linux systems; resolved hardware and software issues for end-users via phone, email and in person.</li>
+          <li>Maintained accurate records of IT support requests and resolutions.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head"><h3>Over &amp; All Tech</h3></div>
+        <div class="role-title">IT Support Specialist</div>
+        <div class="role-dates">MAY 2018 — SEP 2022</div>
+        <ul>
+          <li>Managed Active Directory user accounts, group policies and access permissions.</li>
+          <li>Tested system components, assemblies and subsystems for compliance with design requirements, including precision measurement and debugging.</li>
+          <li>Maintained hardware design and acceptance documentation; provided interdepartmental technical support.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head"><span class="section-num mono">04</span><h2>Education &amp; certifications</h2></div>
+    <div class="edu-grid">
+      <div>
+        <h3>Education</h3>
+        <div class="item-list">
+          <div class="item"><div class="t">Bachelor of Computer Applications (BCA)</div><div class="s">TMV University, Pune, India</div></div>
+          <div class="item"><div class="t">BSc, Computer Science</div><div class="s">University of Mumbai, Mumbai, India</div></div>
+          <div class="item"><div class="t">Higher Secondary School</div><div class="s">Rizvi College, Mumbai, India</div></div>
+        </div>
+      </div>
+      <div>
+        <h3>Certifications</h3>
+        <div class="item-list">
+          <div class="cert-item"><span class="cert-dot"></span><span class="t">CCNA</span></div>
+          <div class="cert-item"><span class="cert-dot"></span><span class="t">Microsoft Certified Systems Administrator</span></div>
+          <div class="cert-item"><span class="cert-dot"></span><span class="t">Google IT Support Professional Certificate</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="contact-panel">
+      <div>
+        <div class="contact-status"><span class="dot"></span>Open to new opportunities</div>
+        <h2>Let's talk about your network.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:owessk@gmail.com">owessk@gmail.com</a>
+        <a href="tel:+918655250782">+91 86552 50782</a>
+        <a href="https://www.linkedin.com/in/owessk/" target="_blank" rel="noopener">linkedin.com/in/owessk</a>
+        <span style="color: var(--text-faint);">Mumbai, India</span>
+      </div>
+    </div>
+    <div class="foot-note">OWAIS SHAIKH · NETWORK ENGINEER</div>
+  </footer>
+
+</div>
